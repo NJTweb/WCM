@@ -1,0 +1,20 @@
+﻿@viewport{
+    zoom: 1.0;
+    width: device-width;
+}
+@-ms-viewport{
+    width: extend-to-zoom;
+    zoom: 1.0;
+}
+@media (max-width: 799px), handheld{
+    input:optional, textarea:optional, select:optional{
+        display: none;
+    }
+    td{
+        width: 100%;
+        float: left;
+    }
+    input[type=submit]{
+        display:block;
+    }
+}
