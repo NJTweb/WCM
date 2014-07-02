@@ -11,12 +11,13 @@
     @Scripts.Render("~/Scripts/js/misc.js")
     @Scripts.Render("~/Scripts/js/wcm.js")
     @Scripts.Render("~/Scripts/js/SEWO.js")
+    @Scripts.Render("~/Scripts/js/Media.js")
     @Styles.Render("~/Content/normalize.css")
     @Styles.Render("~/Content/FormClasses.css")
     @Styles.Render("~/Content/Media.css")
 </head>
 
-<body>
+<body onload="mobileView()">
     <form action="@ViewData("Action")" method="post" enctype="multipart/form-data" id="SEWO">
         <table>
             <tr>

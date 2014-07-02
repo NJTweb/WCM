@@ -8,14 +8,16 @@
     @Scripts.Render("~/Scripts/js/AJAX.js")
     @Scripts.Render("~/Scripts/js/misc.js")
     @Scripts.Render("~/Scripts/js/wcm.js")
+    @Scripts.Render("~/Scripts/js/Media.js")
     @Styles.Render("~/Content/Checklist.css")
     @Styles.Render("~/Content/WCC.css")
     @Styles.Render("~/Content/Media.css")
     <title>WCM Safety Checklist</title>
 </head>
 
-<body>
-    <form action="@ViewData("Action")" method="post" enctype="multipart/form-data" id="WCC"><!-- If a form is opened, the update script is used, if the default page is opened (No ID), the submit script is used -->
+<body onload="mobileView()">
+    <form action="@ViewData("Action")" method="post" enctype="multipart/form-data" id="WCC">
+        <!-- If a form is opened, the update script is used, if the default page is opened (No ID), the submit script is used -->
         <table>
             <tr>
                 <td colspan="3"><h1>Work Cell Observation Checklist No. @(Model.ID)<input id="ID" type="hidden" name="ID" value="@Model.ID"></h1></td>
@@ -98,30 +100,30 @@
                 <td colspan="2"><h2>Requirement</h2></td>
                 <td><h2>Select</h2></td>
             </tr>
-    @For i As Integer = 1 To ViewData("Labels").Count
-        @If ViewBag.Headers(i - 1) <> String.Empty Then
-            @<tr id="header"><td colspan="3"><h3>@ViewData("Headers")(i - 1)</h3></td></tr>
-        End If
-        @<text>
-            <tr>
-                <td>
-                    <span>@ViewData("Labels")(i - 1)</span>
-                </td>
-                <td>
-                    <label for="file@(i)"><img id="uploadimg@(i)" src="../../res/upload.png" alt="Upload"></label>
-                    <input type="file" name="file@(i)" id="file@(i)" onchange="changeImage(this, document.getElementById('uploadimg@(i)'));">
-                </td>
-                <td>
-                    <select name="Compliant@(i)" required>
-                    @For Each compliant As String In ViewData("compliancy")
-                    Dim selected As Boolean = (compliant = Model.Fields("Compliant" & i))
-                        @<option value="@compliant" @IIf(selected, "selected", "")>@compliant</option>
-                    Next
-                    </select>
-                </td>
-            </tr>
-        </text>
-    Next
+            @For i As Integer = 1 To ViewData("Labels").Count
+                @If ViewBag.Headers(i - 1) <> String.Empty Then
+                    @<tr id="header"><td colspan="3"><h3>@ViewData("Headers")(i - 1)</h3></td></tr>
+                End If
+                @<text>
+                    <tr>
+                        <td>
+                            <span>@ViewData("Labels")(i - 1)</span>
+                        </td>
+                        <td>
+                            <label for="file@(i)"><img id="uploadimg@(i)" src="../../res/upload.png" alt="Upload"></label>
+                            <input type="file" name="file@(i)" id="file@(i)" onchange="changeImage(this, document.getElementById('uploadimg@(i)'));">
+                        </td>
+                        <td>
+                            <select name="Compliant@(i)" required>
+                                @For Each compliant As String In ViewData("compliancy")
+                                Dim selected As Boolean = (compliant = Model.Fields("Compliant" & i))
+                                    @<option value="@compliant" @IIf(selected, "selected", "")>@compliant</option>
+                                Next
+                            </select>
+                        </td>
+                    </tr>
+                </text>
+            Next
             <tr>
                 <td colspan="3"><h3>Comments</h3></td>
             </tr>
