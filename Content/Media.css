@@ -6,7 +6,7 @@
     width: extend-to-zoom;
     zoom: 1.0;
 }
-@media (max-width: 400px){
+@media (max-width: 799px){
     input:optional, textarea:optional, select:optional{
         display: none;
     }

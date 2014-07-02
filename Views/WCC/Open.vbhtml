@@ -8,14 +8,13 @@
     @Scripts.Render("~/Scripts/js/AJAX.js")
     @Scripts.Render("~/Scripts/js/misc.js")
     @Scripts.Render("~/Scripts/js/wcm.js")
-    @Scripts.Render("~/Scripts/js/Media.js")
     @Styles.Render("~/Content/Checklist.css")
     @Styles.Render("~/Content/WCC.css")
     @Styles.Render("~/Content/Media.css")
     <title>WCM Safety Checklist</title>
 </head>
 
-<body onload="mobileView()">
+<body>
     <form action="@ViewData("Action")" method="post" enctype="multipart/form-data" id="WCC">
         <!-- If a form is opened, the update script is used, if the default page is opened (No ID), the submit script is used -->
         <table>
