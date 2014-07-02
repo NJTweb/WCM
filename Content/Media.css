@@ -16,5 +16,6 @@
     }
     input[type=submit]{
         display:block;
+        float: left;
     }
 }

@@ -26,12 +26,12 @@ td input, td select, td textarea {
 }
 
 #brushSize{
-    width:2em;
+    width:10%;
     height:auto;
 }
 
 #submitButton{
-    height:auto;
+    height: auto;
     width: auto;
 }
 

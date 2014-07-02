@@ -25,13 +25,13 @@
                     <div class="inputPlusLabel">
                         <strong>Date</strong>
                         @Code
-                            @<input type="date" name="WCDate" value="@DateTime.Parse(Model.Fields("WCDate")).ToString("yyyy-MM-dd")" required>
+                            @<input type="date" name="WCDate" placeholder="Date created" value="@DateTime.Parse(Model.Fields("WCDate")).ToString("yyyy-MM-dd")" required>
                         End Code
                     </div>
                     <div class="inputPlusLabel">
                         <strong>Shift</strong>
                         <select name="Shift" required>
-                            <option value=""></option>
+                            <option value="">Shift</option>
                             @For Each shift As String In ViewData("Shifts")
                                 Dim selected As Boolean = (shift = Model.Fields("Shift"))
                                 @<option value="@shift" @IIf(selected, "selected", "")>@shift</option>
@@ -41,7 +41,7 @@
                     <div class="inputPlusLabel">
                         <strong>Auditor's Name</strong>
                         <select name="AuditorName" id="AuditorName" required>
-                            <option value=""></option>
+                            <option value="">Auditor Name</option>
                             @For Each auditor As String In ViewData("Auditors")
                                 Dim selected As Boolean = (auditor = Model.Fields("AuditorName"))
                                 @<option value="@auditor" @IIf(selected, "selected", "")>@auditor</option>
@@ -51,7 +51,7 @@
                     <div class="inputPlusLabel">
                         <strong>Department</strong>
                         <select name="Department" id="department" onchange="getZonesAndWorkCells(getSelectText(this));" required>
-                            <option value=""></option>
+                            <option value="">Department</option>
                             @For Each department As String In ViewData("Departments")
                                 Dim selected As Boolean = (department = Model.Fields("Department"))
                                 @<option value="@department" @IIf(selected, "selected", "")>@department</option>
@@ -75,7 +75,7 @@
                     <div class="inputPlusLabel">
                         <strong>Tool No.</strong>
                         <select name="PartNum" id="tool">
-                            <option value=""></option>
+                            <option value="">Tool Number</option>
                             @For Each tool As String In ViewData("Tools")
                                 Dim selected As Boolean = (tool = Model.Fields("PartNum"))
                                 @<option value="@tool" @IIf(selected, "selected", "")>@tool</option>
@@ -85,7 +85,7 @@
                     <div class="inputPlusLabel">
                         <strong>Supervisor</strong>
                         <select name="Supervisor" id="supervisor" required>
-                            <option value=""></option>
+                            <option value="">Supervisor</option>
                             @For Each supervisor As String In ViewData("Supervisors")
                                 Dim selected As Boolean = (supervisor = Model.Fields("Supervisor"))
                                 @<option value="@supervisor" @IIf(selected, "selected", "")>@supervisor</option>
@@ -112,7 +112,7 @@
                     <input type="file" name="file@(i)" id="file@(i)" onchange="changeImage(this, document.getElementById('uploadimg@(i)'));">
                 </td>
                 <td>
-                    <select name="Compliant@(i)">
+                    <select name="Compliant@(i)" required>
                     @For Each compliant As String In ViewData("compliancy")
                     Dim selected As Boolean = (compliant = Model.Fields("Compliant" & i))
                         @<option value="@compliant" @IIf(selected, "selected", "")>@compliant</option>
@@ -128,7 +128,7 @@
             <tr></tr> <!-- makes sure the next (last) row is blue, becaue of the nth-of-type rule-->
             <tr>
                 <td colspan="2">
-                    <textarea maxlength="1000" name="Comments" rows="6" cols="50" form="WCC" placeholder="Please type any relevant comments here.">@Model.Fields("Comments")</textarea><br />
+                    <textarea maxlength="1000" name="Comments" rows="6" cols="50" form="WCC" placeholder="Comments">@Model.Fields("Comments")</textarea><br />
                 </td>
                 <td>
                     <input class="button" type="submit" value="@ViewData("Action")"> <!-- If a form is opened, the update button is displayed, if the default page is opened, a submit button is displayed -->

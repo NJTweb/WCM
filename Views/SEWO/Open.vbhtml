@@ -28,7 +28,7 @@
                 <td class="ltgrey">Accident Type</td>
                 <td>
                     <select name="AccidentType" required>
-                        <option value=""></option>
+                        <option value="">Accident Type</option>
                         @Html.Raw(ViewData("AccidentTypeOptions"))
                     </select>
                 </td>
@@ -42,7 +42,6 @@
                 </td>
                 <td>
                     <select name="ZZone" id="zone" onchange="getMachines(getSelectText(this))" required>
-                        <option value="">Zone</option>
                     </select>
                 </td>
             </tr>
@@ -50,19 +49,18 @@
                 <td colspan="2"><input type="text" name="InjuredName" placeholder="Name of the injured" value="@Model.Fields("InjuredName")" required /></td>
                 <td>
                     <select name="Sex">
-                        <option value=""></option>
+                        <option value="">Sex</option>
                         @Html.Raw(ViewData("SexOptions"))
                     </select>
                 </td>
                 <td>
                     <select name="TypeOfPosition">
-                        <option value=""></option>
+                        <option value="">Position Type</option>
                         @Html.Raw(ViewData("PositionTypeOptions"))
                     </select>
                 </td>
                 <td colspan="2">
                     <select name="Machine" id="mach">
-                        <option value="">Machine</option>
                     </select>
                 </td>
             </tr>
@@ -79,7 +77,7 @@
                         @Html.Raw(ViewData("ShiftOptions"))
                     </select>
                 </td>
-                <td><input type="date" name="InjuryDate" value="@Model.Fields("InjuryDate")" required /></td>
+                <td><input type="date" name="InjuryDate" placeholder="Injury Date" value="@Model.Fields("InjuryDate")" required /></td>
                 <td><input type="time" name="InjuryTime" placeholder="Time of incident" value="@Model.Fields("InjuryTime")" /></td>
             </tr>
             <tr>
@@ -93,14 +91,14 @@
                 <td><input type="text" name="WWhat" placeholder="WHAT(Nature and body part)" value="@Model.Fields("WWhat")" /></td>
                 <td>
                     <select name="InjuryType" required>
-                        <option value=""></option>
+                        <option value="">Injury Type</option>
                         @Html.Raw(ViewData("InjuryTypeOptions"))
                     </select>
                 </td>
                 <td colspan="2" rowspan="6" height="200">
                     <img src="~/res/BodyChart.png" />
                     <select name="BodyPart" required>
-                        <option value=""></option>
+                        <option value="">Body Part</option>
                         @Html.Raw(ViewData("BodyPartOptions"))
                     </select>
                 </td>
@@ -111,11 +109,11 @@
                     </button>
                     <input type="text" id="colorPicker" class="color" />
                     <label for="brushSize">Brush Size:</label>
-                    <input type="text" id="brushSize" placeholder="Brush Size" value="2" />
+                    <input type="text" id="brushSize" placeholder="Size" value="2" />
                     <canvas id="sketchArea" onmousemove="drawSketch()" onmouseout="saveSketch()">Your browser does not support this sketch box.</canvas>
                     <input type="hidden" name="SketchURL" id="sketchUrl" value="@Model.Fields("SketchURL")" />
                 </td>
-                <td rowspan="6"><textarea name="ActionDescription">@Model.Fields("ActionDescription")</textarea><!-- corrective action --></td>
+                <td rowspan="6"><textarea name="ActionDescription" placeholder="Action Description">@Model.Fields("ActionDescription")</textarea><!-- corrective action --></td>
             </tr>
             <tr>
                 <td><input type="text" name="WWhen" placeholder="WHEN(when did it happen)" value="@Model.Fields("WWhen")" /></td>
@@ -223,11 +221,11 @@
                 <td class="dkblue whitetext">NOTES</td>
             </tr>
             <tr>
-                <td colspan="2" height="100px"><textarea name="ActionPlan">@Model.Fields("ActionPlan")</textarea><!-- action plan --></td>
-                <td><textarea name="Responsible">@Model.Fields("Responsible")</textarea><!-- responsible --></td>
-                <td><input type="text" name="DueDate" value="@Model.Fields("DueDate")" /><!-- due date --></td>
-                <td><input type="text" name="CloseDate" value="@Model.Fields("CloseDate")" /><!-- close date --></td>
-                <td><textarea name="Notes">@Model.Fields("Notes")</textarea><!-- notes --></td>
+                <td colspan="2" height="100px"><textarea name="ActionPlan" placeholder="Action plan">@Model.Fields("ActionPlan")</textarea><!-- action plan --></td>
+                <td><textarea name="Responsible" placeholder="Responsible">@Model.Fields("Responsible")</textarea><!-- responsible --></td>
+                <td><input type="text" name="DueDate" placeholder="Due date" value="@Model.Fields("DueDate")" /><!-- due date --></td>
+                <td><input type="text" name="CloseDate" placeholder="Close date" value="@Model.Fields("CloseDate")" /><!-- close date --></td>
+                <td><textarea name="Notes" placeholder="Notes">@Model.Fields("Notes")</textarea><!-- notes --></td>
             </tr>
             <tr>
                 <td colspan="7">
@@ -273,30 +271,30 @@
                         </tr>
                         <tr>
                             <td class="ltgrey">Name</td>
-                            <td><input type="text" name="EmployeeName" value="@Model.Fields("EmployeeName")" /></td>
-                            <td><input type="text" name="TeamLeadName" value="@Model.Fields("TeamLeadName")" /></td>
-                            <td><input type="text" name="SupervisorName" value="@Model.Fields("SupervisorName")" /></td>
-                            <td><input type="text" name="DeptManagerName" value="@Model.Fields("DeptManagerName")" /></td>
-                            <td><input type="text" name="SafetyMgrName" value="@Model.Fields("SafetyMgrName")" /></td>
-                            <td><input type="text" name="PlantMgrName" value="@Model.Fields("PlantMgrName")" /></td>
+                            <td><input type="text" name="EmployeeName" placeholder="Employee Name" value="@Model.Fields("EmployeeName")" /></td>
+                            <td><input type="text" name="TeamLeadName" placeholder="Team Lead Name" value="@Model.Fields("TeamLeadName")" /></td>
+                            <td><input type="text" name="SupervisorName" placeholder="Supervisor Name" value="@Model.Fields("SupervisorName")" /></td>
+                            <td><input type="text" name="DeptManagerName" placeholder="Dept Mgr Name" value="@Model.Fields("DeptManagerName")" /></td>
+                            <td><input type="text" name="SafetyMgrName" placeholder="Safety Mgr Name" value="@Model.Fields("SafetyMgrName")" /></td>
+                            <td><input type="text" name="PlantMgrName" placeholder="Plant Mgr Name" value="@Model.Fields("PlantMgrName")" /></td>
                         </tr>
                         <tr>
                             <td class="ltgrey">Date</td>
-                            <td><input type="date" name="EmployeeDate" value="@Model.Fields("EmployeeDate")" /></td>
-                            <td><input type="date" name="TeamLeadDate" value="@Model.Fields("TeamLeadDate")" /></td>
-                            <td><input type="date" name="SupervisorDate" value="@Model.Fields("SupervisorDate")" /></td>
-                            <td><input type="date" name="DeptManagerDate" value="@Model.Fields("DeptManagerDate")" /></td>
-                            <td><input type="date" name="SafetyMgrDate" value="@Model.Fields("SafetyMgrDate")" /></td>
-                            <td><input type="date" name="PlantMgrDate" value="@Model.Fields("PlantMgrDate")" /></td>
+                            <td><input type="date" name="EmployeeDate" placeholder="Employee Date" value="@Model.Fields("EmployeeDate")" /></td>
+                            <td><input type="date" name="TeamLeadDate" placeholder="Team Lead Date" value="@Model.Fields("TeamLeadDate")" /></td>
+                            <td><input type="date" name="SupervisorDate" placeholder="Supervisor Date" value="@Model.Fields("SupervisorDate")" /></td>
+                            <td><input type="date" name="DeptManagerDate" placeholder="Dept Mgr Date" value="@Model.Fields("DeptManagerDate")" /></td>
+                            <td><input type="date" name="SafetyMgrDate" placeholder="Safety Mgr Date" value="@Model.Fields("SafetyMgrDate")" /></td>
+                            <td><input type="date" name="PlantMgrDate" placeholder="Plant Mgr Date" value="@Model.Fields("PlantMgrDate")" /></td>
                         </tr>
                         <tr>
                             <td class="ltgrey">Signature</td>
-                            <td><input type="text" name="EmployeeSignature" value="@Model.Fields("EmployeeSignature")" /></td>
-                            <td><input type="text" name="TeamLeadSignature" value="@Model.Fields("TeamLeadSignature")" /></td>
-                            <td><input type="text" name="SupervisorSignature" value="@Model.Fields("SupervisorSignature")" /></td>
-                            <td><input type="text" name="DeptManagerSignature" value="@Model.Fields("DeptManagerSignature")" /></td>
-                            <td><input type="text" name="SafetyMgrSignature" value="@Model.Fields("SafetyMgrSignature")" /></td>
-                            <td><input type="text" name="PlantMgrSignature" value="@Model.Fields("PlantMgrSignature")" /></td>
+                            <td><input type="text" name="EmployeeSignature" placeholder="Employee Signature" value="@Model.Fields("EmployeeSignature")" /></td>
+                            <td><input type="text" name="TeamLeadSignature" placeholder="Team Lead Signature" value="@Model.Fields("TeamLeadSignature")" /></td>
+                            <td><input type="text" name="SupervisorSignature" placeholder="Supervisor Signature" value="@Model.Fields("SupervisorSignature")" /></td>
+                            <td><input type="text" name="DeptManagerSignature" placeholder="Dept Mgr Signature" value="@Model.Fields("DeptManagerSignature")" /></td>
+                            <td><input type="text" name="SafetyMgrSignature" placeholder="Safety Mgr Signature" value="@Model.Fields("SafetyMgrSignature")" /></td>
+                            <td><input type="text" name="PlantMgrSignature" placeholder="Plant Mgr Signature" value="@Model.Fields("PlantMgrSignature")" /></td>
                         </tr>
                     </table>
                 </td>
@@ -311,15 +309,15 @@
             </tr>
             <tr>
                 <td colspan="3"><input type="text" name="InjuredSignature" placeholder="Signature" value="@Model.Fields("InjuredSignature")"></td>
-                <td colspan="2"><input type="date" name="InjuredDate" value="@Model.Fields("InjuredDate")"></td>
+                <td colspan="2"><input type="date" name="InjuredDate" placeholder="Injured Date" value="@Model.Fields("InjuredDate")"></td>
                 <td><input type="text" name="WitnessSignature" placeholder="Signature" value="@Model.Fields("WitnessSignature")"></td>
-                <td><input type="date" name="WitnessDate" value="@Model.Fields("WitnessDate")"></td>
+                <td><input type="date" name="WitnessDate" placeholder="Witness Date" value="@Model.Fields("WitnessDate")"></td>
             </tr>
             <tr>
                 <td colspan="7">
-                    <input id="submitButton" class="button" type="submit" value="@ViewData("Action")"> <!-- If a form is opened, the update button is displayed, if the default page is opened, a submit button is displayed -->
-                    <button class="button" type="button" onclick="location.href='Open'">Clear</button>
-                    <button class="button" type="button" onclick="openForm()">Open</button>
+                    <input id="submitButton" type="submit" value="@ViewData("Action")"> <!-- If a form is opened, the update button is displayed, if the default page is opened, a submit button is displayed -->
+                    <button type="button" onclick="location.href='Open'">Clear</button>
+                    <button type="button" onclick="openForm()">Open</button>
                 </td>
             </tr>
         </table>

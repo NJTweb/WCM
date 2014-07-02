@@ -28,15 +28,15 @@
                 <td class="ltgrey">Name</td>
             </tr>
             <tr>
-                <td><input type="text" name="TagNo" value="@Model.Fields("TagNo")" required/></td>
+                <td><input type="text" name="TagNo" placeholder="Tag Number" value="@Model.Fields("TagNo")" required/></td>
                 <td><input type="text" name="WONo" value="@Model.Fields("WONo")" /></td>
                 <td>
                     <select name="TagType">
-                        <option></option>
+                        <option value="">Tag Type</option>
                         @Html.Raw(ViewData("TagTypeOptions"))
                     </select>
                 </td>
-                <td><input type="text" name="Name" value="@Model.Fields("Name")" /></td>
+                <td><input type="text" name="Name" placeholder="Name" value="@Model.Fields("Name")" /></td>
             </tr>
             <tr>
                 <td class="ltgrey">Date Opened</td>
@@ -45,22 +45,22 @@
                 <td class="ltgrey">Zone</td>
             </tr>
             <tr>
-                <td><input type="date" name="OpenDate" value="@Model.Fields("OpenDate")" required /></td>
+                <td><input type="date" name="OpenDate" placeholder="Open Date" value="@Model.Fields("OpenDate")" required /></td>
                 <td>
                     <select name="Shift">
-                        <option></option>
+                        <option value="">Shift</option>
                         @Html.Raw(ViewData("ShiftOptions"))
                     </select>
                 </td>
                 <td>
                     <select name="Department" id="dept" onchange="getZones(getSelectText(this))">
-                        <option></option>
+                        <option value="">Department</option>
                         @Html.Raw(ViewData("DepartmentOptions"))
                     </select>
                 </td>
                 <td>
                     <select name="Zone" id="zone" onchange="getMachines(getSelectText(this))">
-                        <option></option>
+                        <option value="">Zone</option>
                     </select>
                 </td>
             </tr>
@@ -73,23 +73,23 @@
             <tr>
                 <td>
                     <select name="Machine" id="mach">
-                        <option></option>
+                        <option value="">Machine</option>
                     </select>
                 </td>
                 <td>
                     <select name="ProblemType">
-                        <option></option>
+                        <option value="">Problem Type</option>
                         @Html.Raw(ViewData("ProblemTypeOptions"))
                     </select>
                 </td>
-                <td><input type="date" name="CompletedDate" value="@Model.Fields("CompletedDate")" /></td>
-                <td><input type="text" name="CompletedBy" value="@Model.Fields("CompletedBy")" /></td>
+                <td><input type="date" name="CompletedDate" placeholder="Completed Date" value="@Model.Fields("CompletedDate")" /></td>
+                <td><input type="text" name="CompletedBy" placeholder="Completed By" value="@Model.Fields("CompletedBy")" /></td>
             </tr>
             <tr>
                 <td colspan="4" class="ltgrey">Details</td>
             </tr>
             <tr>
-                <td colspan="4" height="100"><input type="text" name="Details" value="@Model.Fields("Details")" /></td>
+                <td colspan="4" height="100"><input type="text" name="Details" placeholder="Details" value="@Model.Fields("Details")" /></td>
             </tr>
             <tr>
                 <td colspan="4">

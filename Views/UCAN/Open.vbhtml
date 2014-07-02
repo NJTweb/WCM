@@ -32,18 +32,18 @@
             <tr>
                 <td>
                     <select name="UCANType" required>
-                        <option value=""></option>
+                        <option value="">UCAN Type</option>
                         @Html.Raw(ViewData("UCANTypeOptions"))
                     </select>
                 </td>
-                <td><input type="date" name="UCANDate" value="@Model.Fields("UCANDate")" required /></td>
+                <td><input type="date" name="UCANDate" placeholder="Date Submitted" value="@Model.Fields("UCANDate")" required /></td>
                 <td>
                     <select name="UCANDept" onchange="getZones(getSelectText(this))" required>
-                        <option value=""></option>
+                        <option value="">Department</option>
                         @Html.Raw(ViewData("DepartmentOptions"))
                     </select>
                 </td>
-                <td rowspan="7"><input type="text" name="UCANDescription" value="@Model.Fields("UCANDescription")" required /></td>
+                <td rowspan="7"><input type="text" name="UCANDescription" placeholder="Description" value="@Model.Fields("UCANDescription")" required /></td>
             </tr>
             <tr>
                 <td class="ltgrey"><h3>Reported By</h3></td>
@@ -51,8 +51,8 @@
                 <td class="ltgrey"><h3>Zone</h3></td>
             </tr>
             <tr>
-                <td><input type="text" name="UCANReportedBy" value="@Model.Fields("UCANReportedBy")" required /></td>
-                <td rowspan="5"><input type="text" name="UCANPersons" value="@Model.Fields("UCANPersons")" required /></td>
+                <td><input type="text" name="UCANReportedBy" placeholder="Reported By" value="@Model.Fields("UCANReportedBy")" required /></td>
+                <td rowspan="5"><input type="text" name="UCANPersons" placeholder="Persons" value="@Model.Fields("UCANPersons")" required /></td>
                 <td>
                     <select name="UCANZone" id="zone" onchange="getMachines(getSelectText(this))" required></select>
                 </td>
@@ -64,7 +64,7 @@
             <tr>
                 <td>
                     <select name="IsSafetyTag" required>
-                        <option value=""></option>
+                        <option value="">Is Safety Tag</option>
                         @Html.Raw(ViewData("SafetyTagOptions"))
                     </select>
                 </td>
@@ -79,23 +79,23 @@
             <tr>
                 <td>
                     <select name="UCANCompleted" required>
-                        <option value=""></option>
+                        <option value="">Completed</option>
                         @Html.Raw(ViewData("CompletedOptions"))
                     </select>
                 </td>
-                <td><input type="text" name="Notes" value="@Model.Fields("Notes")" /></td>
+                <td><input type="text" name="Notes" placeholder="Notes" value="@Model.Fields("Notes")" /></td>
             </tr>
             <tr>
                 <td colspan="4" class="ltgrey"><h3>Action Plan</h3></td>
             </tr>
             <tr>
-                <td colspan="4" height="100px"><input type="text" name="UCANActionPlan" value="@Model.Fields("UCANActionPlan")" required /></td>
+                <td colspan="4" height="100px"><input type="text" name="UCANActionPlan" placeholder="Action plan" value="@Model.Fields("UCANActionPlan")" required /></td>
             </tr>
             <tr>
                 <td colspan="4">
-                    <input id="submitButton" class="button" type="submit" value="@ViewData("Action")"> <!-- If a form is opened, the update button is displayed, if the default page is opened, a submit button is displayed -->
-                    <button class="button" type="button" onclick="location.href='Open'">Clear</button>
-                    <button class="button" type="button" onclick="openForm()">Open</button>
+                    <input id="submitButton" type="submit" value="@ViewData("Action")"> <!-- If a form is opened, the update button is displayed, if the default page is opened, a submit button is displayed -->
+                    <button type="button" onclick="location.href='Open'">Clear</button>
+                    <button type="button" onclick="openForm()">Open</button>
                 </td>
             </tr>
         </table>
