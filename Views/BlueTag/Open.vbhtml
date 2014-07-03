@@ -94,9 +94,9 @@
             </tr>
             <tr>
                 <td colspan="4">
-                    <input id="submitButton" class="button" type="submit" value="@ViewData("Action")"> <!-- If a form is opened, the update button is displayed, if the default page is opened, a submit button is displayed -->
-                    <button class="button" type="button" onclick="location.href='Open'">Clear</button>
-                    <button class="button" type="button" onclick="openForm()">Open</button>
+                    <button type="submit" value="@ViewData("Action")">@ViewData("Action")</button>
+                    <button type="button" onclick="location.href='Open'">Clear</button>
+                    <button type="button" onclick="openForm()">Open</button>
                 </td>
             </tr>
         </table>

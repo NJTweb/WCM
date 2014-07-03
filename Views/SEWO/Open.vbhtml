@@ -316,7 +316,7 @@
             </tr>
             <tr>
                 <td colspan="7">
-                    <input id="submitButton" type="submit" value="@ViewData("Action")"> <!-- If a form is opened, the update button is displayed, if the default page is opened, a submit button is displayed -->
+                    <button type="submit" value="@ViewData("Action")">@ViewData("Action")</button>
                     <button type="button" onclick="location.href='Open'">Clear</button>
                     <button type="button" onclick="openForm()">Open</button>
                 </td>
