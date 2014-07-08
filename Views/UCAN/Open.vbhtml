@@ -26,7 +26,7 @@
             </tr>
             <tr>
                 <td class="ltgrey"><h3>Type</h3></td>
-                <td class="ltgrey"><h3>Date</h3></td>
+                <td class="ltgrey"><h3>Plant</h3></td>
                 <td class="ltgrey"><h3>Department</h3></td>
                 <td class="ltgrey"><h3>Description of Incident</h3></td>
             </tr>
@@ -37,23 +37,25 @@
                         @Html.Raw(ViewData("UCANTypeOptions"))
                     </select>
                 </td>
-                <td><input type="date" name="UCANDate" placeholder="Date Submitted" value="@Model.Fields("UCANDate")" required /></td>
                 <td>
-                    <select name="UCANDept" onchange="getZones(getSelectText(this))" required>
-                        <option value="">Department</option>
-                        @Html.Raw(ViewData("DepartmentOptions"))
+                    <select name="Plant" id="plant" onchange="getDepartments(getSelectText(this))">
+                        @Html.Raw(ViewData("PlantOptions"))
+                    </select>
+                </td>
+                <td>
+                    <select name="UCANDept" id="dept" onchange="getZones(getSelectText(this))" required>
                     </select>
                 </td>
                 <td rowspan="7"><input type="text" name="UCANDescription" placeholder="Description" value="@Model.Fields("UCANDescription")" required /></td>
             </tr>
             <tr>
                 <td class="ltgrey"><h3>Reported By</h3></td>
-                <td class="ltgrey"><h3>Equipment/Location</h3></td>
+                <td class="ltgrey"><h3>Location/Persons</h3></td>
                 <td class="ltgrey"><h3>Zone</h3></td>
             </tr>
             <tr>
                 <td><input type="text" name="UCANReportedBy" placeholder="Reported By" value="@Model.Fields("UCANReportedBy")" required /></td>
-                <td rowspan="5"><input type="text" name="UCANPersons" placeholder="Persons" value="@Model.Fields("UCANPersons")" required /></td>
+                <td rowspan="3"><input type="text" name="UCANPersons" placeholder="Location/Persons" value="@Model.Fields("UCANPersons")" required /></td>
                 <td>
                     <select name="UCANZone" id="zone" onchange="getMachines(getSelectText(this))" required></select>
                 </td>
@@ -75,6 +77,7 @@
             </tr>
             <tr>
                 <td class="ltgrey"><h3>Completed</h3></td>
+                <td class="ltgrey"><h3>Date</h3></td>
                 <td class="ltgrey"><h3>Notes/Tag No.</h3></td>
             </tr>
             <tr>
@@ -84,6 +87,7 @@
                         @Html.Raw(ViewData("CompletedOptions"))
                     </select>
                 </td>
+                <td><input type="date" name="UCANDate" placeholder="Date Submitted" value="@Model.Fields("UCANDate")" required /></td>
                 <td><input type="text" name="Notes" placeholder="Notes" value="@Model.Fields("Notes")" /></td>
             </tr>
             <tr>
@@ -102,9 +106,11 @@
         </table>
     </form>
     <script>
+        getDepartments("@Model.Fields("Plant")");
         getZones("@Model.Fields("UCANDept")");
         getMachines("@Model.Fields("UCANZone")");
 
+        setValue("UCANDept", "@Model.Fields("UCANDept")");
         setValue("UCANZone", "@Model.Fields("UCANZone")");
         setValue("UCANEquip", "@Model.Fields("UCANEquip")");
     </script>
