@@ -1,5 +1,9 @@
 "use strict";
 
+function getDepartments(plant) {
+    AJAXInsert("dept", "/WCC/getOptions?ConStr=safety&Query=depts&plant=" + plant, false);
+}
+
 function getZonesAndWorkCells(dept) {
     getZones(dept);
     getWorkCells(dept);

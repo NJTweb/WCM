@@ -36,13 +36,13 @@
                 <td class="ltgrey">Sex</td>
                 <td class="ltgrey">Position Type</td>
                 <td>
-                    <select name="Department" onchange="getZones(getSelectText(this));" required>
-                        <option value="">Department</option>
-                        @Html.Raw(ViewData("DepartmentOptions"))
+                    <select name="Plant" onchange="getDepartments(getSelectText(this));" required>
+                        <option value="">Plant</option>
+                        @Html.Raw(ViewData("PlantOptions"))
                     </select>
                 </td>
                 <td>
-                    <select name="ZZone" id="zone" onchange="getMachines(getSelectText(this))" required>
+                    <select name="Department" id="dept" onchange="getZones(getSelectText(this));" required>
                     </select>
                 </td>
             </tr>
@@ -60,7 +60,10 @@
                         @Html.Raw(ViewData("PositionTypeOptions"))
                     </select>
                 </td>
-                <td colspan="2">
+                <td>
+                    <select name="ZZone" id="zone" onchange="getMachines(getSelectText(this))" required></select>
+                </td>
+                <td>
                     <select name="Machine" id="mach">
                     </select>
                 </td>
@@ -324,11 +327,13 @@
         </table>
     </form>
     <script>
+        getDepartments("@Model.Fields("Plant")");
         getZones("@Model.Fields("Department")");
         getMachines("@Model.Fields("ZZone")");
         getSecondaryRootCauses("@Model.Fields("RootCause")");
         getActionsAndMicros("@Model.Fields("SecondaryCause")");
 
+        setValue("Department", "@Model.Fields("Department")");
         setValue("ZZone", "@Model.Fields("ZZone")");
         setValue("Machine", "@Model.Fields("Machine")");
         setValue("SecondaryCause", "@Model.Fields("SecondaryCause")");
