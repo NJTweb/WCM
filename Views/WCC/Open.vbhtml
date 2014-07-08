@@ -50,13 +50,14 @@
                         </select>
                     </div>
                     <div class="inputPlusLabel">
+                        <strong>Plant</strong>
+                        <select name="Plant" onchange="getDepartments(getSelectText(this));" required>
+                            @Html.Raw(ViewData("PlantOptions"))
+                        </select>
+                    </div>
+                    <div class="inputPlusLabel">
                         <strong>Department</strong>
-                        <select name="Department" id="department" onchange="getZonesAndWorkCells(getSelectText(this));" required>
-                            <option value="">Department</option>
-                            @For Each department As String In ViewData("Departments")
-                                Dim selected As Boolean = (department = Model.Fields("Department"))
-                                @<option value="@department" @IIf(selected, "selected", "")>@department</option>
-                            Next
+                        <select name="Department" id="dept" onchange="getZonesAndWorkCells(getSelectText(this));" required>
                         </select>
                     </div>
                     <div class="inputPlusLabel">
@@ -119,6 +120,12 @@
                                     @<option value="@compliant" @IIf(selected, "selected", "")>@compliant</option>
                                 Next
                             </select>
+                            <select name="Severity@(i)">
+                                @For Each severity As String In ViewData("severity")
+                                Dim selected As Boolean = (severity = Model.Fields("Severity" & i))
+                                    @<option value="@severity" @IIf(selected, "selected", "")>@severity</option>
+                                Next
+                            </select>
                         </td>
                     </tr>
                 </text>
@@ -142,8 +149,10 @@
     <script>
         "use strict";
         //Set dropdowns
+        getDepartments("@Model.Fields("Plant")");
         getZonesAndWorkCells("@Model.Fields("Department")"); //runs synchronously
         getMachines("@Model.Fields("Zone")");
+        setValue("Department", "@Model.Fields("Department")");
         setValue("Zone", "@Model.Fields("Zone")");
         setValue("WorkCell", "@Model.Fields("WorkCell")");
         setValue("MachID", "@Model.Fields("MachID")");
