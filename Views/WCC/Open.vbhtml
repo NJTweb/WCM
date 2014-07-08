@@ -52,6 +52,7 @@
                     <div class="inputPlusLabel">
                         <strong>Plant</strong>
                         <select name="Plant" onchange="getDepartments(getSelectText(this));" required>
+                            <option value="">Plant</option>
                             @Html.Raw(ViewData("PlantOptions"))
                         </select>
                     </div>
